@@ -22,12 +22,8 @@ WORKDIR /app
 # Copy everything from deps including node_modules
 COPY --from=deps /app ./
 
-# Copy source files
-COPY packages/shared-auth ./packages/shared-auth/
-COPY packages/shared-ui ./packages/shared-ui/
-COPY app ./app/
-COPY public ./public/
-COPY next.config.ts tailwind.config.ts postcss.config.mjs tsconfig.json ./
+# Copy all source files
+COPY . .
 
 # Build shared packages first
 WORKDIR /app/packages/shared-auth
