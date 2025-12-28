@@ -12,8 +12,10 @@ COPY packages/tailwind-config/package.json ./packages/tailwind-config/
 COPY packages/shared-auth/package.json ./packages/shared-auth/
 COPY packages/shared-ui/package.json ./packages/shared-ui/
 
-# Install dependencies with npm (flat structure)
-RUN npm install --legacy-peer-deps
+# Install dependencies with npm - use registry explicitly and increase timeout
+RUN npm config set registry https://registry.npmjs.org/ && \
+    npm config set fetch-timeout 300000 && \
+    npm install --legacy-peer-deps --loglevel verbose 2>&1 | tail -100
 
 # Build shared packages
 FROM base AS builder
