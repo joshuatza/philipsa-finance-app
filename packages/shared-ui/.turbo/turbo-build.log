@@ -1,0 +1,15 @@
+
+> @philipsa/shared-ui@0.0.0 build /Users/joshuatwycross/Documents/GitHub/philipsa-hub/packages/shared-ui
+> pnpm run build:styles && pnpm run build:components
+
+
+> @philipsa/shared-ui@0.0.0 build:styles /Users/joshuatwycross/Documents/GitHub/philipsa-hub/packages/shared-ui
+> tailwindcss -i ./src/styles.css -o ./dist/index.css
+
+≈ tailwindcss v4.1.11
+
+Done in 21ms
+
+> @philipsa/shared-ui@0.0.0 build:components /Users/joshuatwycross/Documents/GitHub/philipsa-hub/packages/shared-ui
+> tsc
+

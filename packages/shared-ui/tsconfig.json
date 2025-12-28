@@ -1,0 +1,9 @@
+{
+  "extends": "@philipsa/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["dist", "build", "node_modules"]
+}

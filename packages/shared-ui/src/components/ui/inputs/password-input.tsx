@@ -1,0 +1,34 @@
+'use client';
+
+import { EyeIcon, EyeOffIcon, LockIcon } from 'lucide-react';
+import { useId, useState } from 'react';
+
+import { IconInput } from './icon-input';
+
+function PasswordInput({ ...props }) {
+	const id = useId();
+	const [isVisible, setIsVisible] = useState<boolean>(false);
+	const lockIcon = <LockIcon aria-hidden="true" size={16} />;
+
+	const toggleVisibility = () => setIsVisible((prevState) => !prevState);
+
+	return (
+		<div className="*:not-first:mt-2">
+			<div className="relative">
+				<IconInput icon={lockIcon} id={id} label="Password" type={isVisible ? 'text' : 'password'} {...props} />
+				<button
+					aria-controls="password"
+					aria-label={isVisible ? 'Hide password' : 'Show password'}
+					aria-pressed={isVisible}
+					className="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md text-muted-foreground/80 outline-none transition-[color,box-shadow] hover:text-foreground focus:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+					onClick={toggleVisibility}
+					type="button"
+				>
+					{isVisible ? <EyeOffIcon aria-hidden="true" size={16} /> : <EyeIcon aria-hidden="true" size={16} />}
+				</button>
+			</div>
+		</div>
+	);
+}
+
+export { PasswordInput };
